@@ -1,8 +1,9 @@
-package mryazik.github.io;
+package mryazik.github.io.Controllers;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.VBox;
+import mryazik.github.io.App;
 
 import java.io.IOException;
 import java.net.URL;
