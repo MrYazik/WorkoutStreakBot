@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="177.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mryazik.github.io.Controllers.TrainersVBOX">
+    <children>
+        <Button fx:id="stats_button" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefWidth="200.0" text="Создать тренеровку" textAlignment="CENTER">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+            <VBox.margin>
+                <Insets bottom="10.0" />
+            </VBox.margin>
+        </Button>
+        <Button fx:id="trainers_button" alignment="CENTER" mnemonicParsing="false" prefWidth="200.0" text="Мои тренеровки" textAlignment="CENTER">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+         <VBox.margin>
+            <Insets bottom="20.0" />
+         </VBox.margin>
+        </Button>
+      <Button fx:id="trainers_button1" alignment="CENTER" layoutX="10.0" layoutY="115.0" mnemonicParsing="false" prefWidth="200.0" text="Назад" textAlignment="CENTER">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <VBox.margin>
+            <Insets bottom="5.0" top="20.0" />
+         </VBox.margin>
+      </Button>
+    </children>
+    <opaqueInsets>
+        <Insets />
+    </opaqueInsets>
+</VBox>
