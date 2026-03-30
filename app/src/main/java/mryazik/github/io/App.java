@@ -1,12 +1,15 @@
 package mryazik.github.io;
 
+
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-import javafx.fxml.FXML;
+import mryazik.github.io.Controllers.BaseController;
+import mryazik.github.io.Controllers.MainVBOXController;
+import mryazik.github.io.Controllers.TrainersVBOX;
 // Для работы с самим URL ресурса
 
 // Для загрузки FXML-файлов (самый частый сценарий)
@@ -16,8 +19,8 @@ import javafx.fxml.FXML;
 import java.io.IOException;
 
 public class App extends Application {
-    private Stage primaryStage;
-    private BorderPane rootLayout;
+    public Stage primaryStage;
+    public BorderPane rootLayout;
 
     public static void main(String[] args) {
         Application.launch();
@@ -37,11 +40,12 @@ public class App extends Application {
             rootLayout = loader.load();
             Scene scene = new Scene(rootLayout);
             primaryStage.setScene(scene);
-//            InputStream iconStream = getClass().getResourceAsStream("/icons/someImage.png");
-//            Image image = new Image(iconStream);
-//            primaryStage.getIcons().add(image);
-//            BaseController controller = loader.getController();
-//            controller.setAppFX(this);
+            scene.getStylesheets().add(getClass().getResource("/styles/style.css").toExternalForm());
+
+            BaseController controller = loader.getController();
+            controller.setAppFX(this);
+
+            controller.defaultLoad();
             primaryStage.show();
         } catch (IOException e) {
             e.printStackTrace();
