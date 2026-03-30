@@ -8,9 +8,12 @@ import mryazik.github.io.App;
 import java.io.IOException;
 import java.net.URL;
 
+// Base controller отвечает за то чтоб загружать MainVBOX:
+// Статистика, мои тренеровки
+
 public class BaseController
 {
-    private App appFx;
+    App appFx;
     private VBox rootLayout;
 
     @FXML
@@ -27,19 +30,18 @@ public class BaseController
     {
         try {
             FXMLLoader loader = new FXMLLoader();
-
-            URL fxmlLocation = getClass().getResource("/maket/MainVBOX.fxml");
-            loader.setLocation(fxmlLocation);
-
-            if (fxmlLocation == null) {
-                throw new RuntimeException("Файл FXML не найден! Проверьте путь.");
-            }
+            loader.setLocation(getClass().getResource("/maket/MainVBOX.fxml"));
 
             rootLayout = loader.load();
+
+            // Загружаем контроллер кнопок MainVBOXController
+            MainVBOXController controllerMainVBox = loader.getController();
+            controllerMainVBox.setApp(appFx);
+
             appFx.rootLayout.setCenter(rootLayout);
         } catch (IOException e)
         {
-            System.out.println(e.toString());
+            e.printStackTrace();
         }
     }
 }
