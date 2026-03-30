@@ -1,0 +1,17 @@
+{
+  "name_trainers": "TestTrainers",
+  "my_trainers_1": {
+    "excercise_1": {
+      "name" : "Упражнение Бабочка",
+      "cout_apporachies": 4,
+      "cout_complite": 15,
+      "pics_id": 1
+    },
+    "excercise_4": {
+      "name": "Упражнение Пенис",
+      "cout_apporachies": 10,
+      "cout_complite": 1,
+      "pics_id": 2
+    }
+  }
+}
