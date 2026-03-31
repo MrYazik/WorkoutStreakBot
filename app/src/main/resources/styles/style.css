@@ -2,3 +2,8 @@
 {
     -fx-margin: 0px 0px 15px 0px;
 }
+
+.list_ex
+{
+    -fx-alignment: top-center;
+}
