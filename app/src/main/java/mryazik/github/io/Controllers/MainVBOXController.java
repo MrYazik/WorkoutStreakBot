@@ -16,7 +16,7 @@ import java.util.logging.Logger;
 public class MainVBOXController {
     @FXML private Button stats_button;
     @FXML private Button trainers_button;
-    private App app;
+    App app;
     VBox rootLayout;
 
     private Logger logger = Logger.getLogger(MainVBOXController.class.getName());
@@ -40,7 +40,7 @@ public class MainVBOXController {
                 TrainersVBOX controller = loader.getController();
                 controller.setApp(app);
 
-                controller.initList(this); // добавляем кнопки по тренеровкам
+                controller.initList(); // добавляем кнопки по тренеровкам
 
                 app.rootLayout.setCenter(rootLayout);
             }
