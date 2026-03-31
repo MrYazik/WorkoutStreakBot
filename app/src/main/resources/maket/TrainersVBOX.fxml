@@ -24,7 +24,7 @@
             </VBox>
          </content>
       </ScrollPane>
-      <Button fx:id="trainers_button1" alignment="CENTER" layoutX="10.0" layoutY="115.0" mnemonicParsing="false" prefWidth="200.0" text="Назад" textAlignment="CENTER">
+      <Button fx:id="back" alignment="CENTER" layoutX="10.0" layoutY="115.0" mnemonicParsing="false" prefWidth="200.0" text="Назад" textAlignment="CENTER">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
