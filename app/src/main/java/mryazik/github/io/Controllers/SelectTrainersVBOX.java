@@ -48,7 +48,6 @@ public class SelectTrainersVBOX {
             logger.log(Level.INFO, object.toString());
 
             ((Map<String, Object>) object).forEach((keyes, objecte) -> {
-
                 String textField = keyes + ": " + objecte.toString();
 
                 if (keyes.equals("cout_apporachies")) // если поле соответсвует
@@ -65,6 +64,25 @@ public class SelectTrainersVBOX {
 
             // Кнопка настроить
             Button settings = new Button("Настроить");
+
+            settings.setOnAction(action -> {
+                try {
+                    FXMLLoader loader = new FXMLLoader();
+                    loader.setLocation(getClass().getResource("/maket/SettingsOneEx.fxml"));
+
+                    VBox rootLayout = loader.load();
+
+                    SettingsOneEx controller = loader.getController();
+                    controller.setBackcontroller(this);
+
+                    backController.app.rootLayout.setCenter(rootLayout);
+
+                } catch (IOException e)
+                {
+                    logger.log(Level.SEVERE, "Ошибка в инициализации меню SettingsOneEx", e);
+                }
+            });
+
             ex_menu.getChildren().add(settings);
 
             // Добавляем в список новый VBox
