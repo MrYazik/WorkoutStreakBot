@@ -43,28 +43,23 @@ public class SelectTrainersVBOX {
             Label coutComplite = new Label();
             Label picsId = new Label();
 
-            ex_menu.getChildren().add(
-                    coutApporachies
-            );
-            ex_menu.getChildren().add(
-                    coutComplite
-            );
-            ex_menu.getChildren().add(
-                    picsId
-            );
+            ex_menu.getChildren().addAll(coutApporachies, coutComplite, picsId);
 
             logger.log(Level.INFO, object.toString());
 
             ((Map<String, Object>) object).forEach((keyes, objecte) -> {
+
+                String textField = keyes + ": " + objecte.toString();
+
                 if (keyes.equals("cout_apporachies")) // если поле соответсвует
                 {
-                    coutApporachies.setText(keyes + ": " + objecte.toString());
+                    coutApporachies.setText(textField);
                 } else if (keyes.equals("cout_complite")) // если поле соответсвует
                 {
-                    coutComplite.setText(keyes + ": " + objecte.toString());
+                    coutComplite.setText(textField);
                 }  else if (keyes.equals("pics_id")) // если поле соответсвует
                 {
-                    picsId.setText(keyes + ": " + objecte.toString());
+                    picsId.setText(textField);
                 }
             });
 
