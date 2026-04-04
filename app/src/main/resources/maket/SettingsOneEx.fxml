@@ -16,8 +16,8 @@
       </Label>
       <VBox>
          <children>
-            <Label fx:id="count_ap" text="Количесво подходов" />
-            <TextField />
+            <Label text="Количесво подходов" />
+            <TextField fx:id="count_ap" />
          </children>
          <VBox.margin>
             <Insets bottom="20.0" top="10.0" />
@@ -25,18 +25,12 @@
       </VBox>
       <VBox layoutX="10.0" layoutY="68.0">
          <children>
-            <Label fx:id="count_ap1" text="Количесво подходов" />
-            <TextField />
+            <Label text="Количество выполнений за подход" />
+            <TextField fx:id="count_comp" />
          </children>
          <VBox.margin>
             <Insets bottom="20.0" />
          </VBox.margin>
-      </VBox>
-      <VBox layoutX="10.0" layoutY="132.0">
-         <children>
-            <Label fx:id="count_ap11" text="Количесво подходов" />
-            <TextField />
-         </children>
       </VBox>
       <HBox prefHeight="167.0" prefWidth="293.0">
          <VBox.margin>
@@ -51,7 +45,17 @@
                   <Image url="@../trainers/pics/1.jpg" />
                </image>
             </ImageView>
-            <Button fx:id="paste_image" mnemonicParsing="false" prefHeight="155.0" prefWidth="88.0" text="Вставить изображение" wrapText="true" />
+            <Button fx:id="paste_image" mnemonicParsing="false" prefWidth="88.0" text="Вставить изображение" wrapText="true" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Button fx:id="back" mnemonicParsing="false" text="Отмена">
+               <HBox.margin>
+                  <Insets right="20.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="done" mnemonicParsing="false" text="Готово" />
          </children>
       </HBox>
    </children>
