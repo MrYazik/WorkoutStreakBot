@@ -10,6 +10,7 @@ import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -21,12 +22,18 @@ public class SelectTrainersVBOX {
 
     @FXML
     private Label name_trainers;
-
     @FXML
     private VBox list_ep; // список всех тренеровок
 
+    // Для доступа из вне
+    public Map<String, Object> ex_map;
+    public String name_trainers_text;
+
     public void initVBOX(String name_trainers, Map<String, Object> excercise)
     {
+        this.ex_map = excercise;
+        this.name_trainers_text = name_trainers;
+
         this.name_trainers.setText(name_trainers);
 
         // Перебираем упражнения и
@@ -47,15 +54,24 @@ public class SelectTrainersVBOX {
 
             logger.log(Level.INFO, object.toString());
 
+            AtomicInteger count_ap = new AtomicInteger(0);
+            AtomicInteger count_comp = new AtomicInteger(0);
+
             ((Map<String, Object>) object).forEach((keyes, objecte) -> {
                 String textField = keyes + ": " + objecte.toString();
 
                 if (keyes.equals("cout_apporachies")) // если поле соответсвует
                 {
                     coutApporachies.setText(textField);
+
+                    // получаем из поля значение
+                    count_ap.set(Integer.parseInt(objecte.toString()));
                 } else if (keyes.equals("cout_complite")) // если поле соответсвует
                 {
                     coutComplite.setText(textField);
+
+                    // Получаем значение из поля
+                    count_comp.set(Integer.parseInt(objecte.toString()));
                 }  else if (keyes.equals("pics_id")) // если поле соответсвует
                 {
                     picsId.setText(textField);
@@ -74,6 +90,7 @@ public class SelectTrainersVBOX {
 
                     SettingsOneEx controller = loader.getController();
                     controller.setBackcontroller(this);
+                    controller.initOneEx(name_trainers, key, count_ap.get(), count_comp.get());
 
                     backController.app.rootLayout.setCenter(rootLayout);
 
