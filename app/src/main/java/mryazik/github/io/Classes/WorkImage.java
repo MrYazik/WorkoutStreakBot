@@ -43,6 +43,7 @@ public class WorkImage {
             } else
             {
                 Files.createDirectories(Paths.get("images/"));
+                loadImage(image);
             }
         } catch (IOException e) {
             e.printStackTrace();
