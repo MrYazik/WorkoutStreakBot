@@ -7,6 +7,7 @@ build
 # Игнорирование готовых файлов тренеровок
 Trainers.json
 app/Trainers.json
+images/
 
 # Ненужные тесты
 app/src/test/
