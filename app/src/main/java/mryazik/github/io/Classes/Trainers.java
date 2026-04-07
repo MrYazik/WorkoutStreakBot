@@ -95,7 +95,8 @@ public class Trainers
         }
     }
 
-    public static void addEx(String name_trainers, String name_ex, Map<String, Object> ex) // Добавление упражнения по id тренеровки
+    // Возвращаем Map<String, Object> для того чтоб потом не пользоваться новым getFromFile()
+    public static Map<String, Object> addEx(String name_trainers, String name_ex, Map<String, Object> ex) // Добавление упражнения по id тренеровки
     {
         Map<String, Object> trainers = Objects.requireNonNull(getFromFile(), "Нету упражнений в файле Trainers.json").getAllTrainings();
 
@@ -114,6 +115,8 @@ public class Trainers
                 logger.log(Level.INFO, "addEx() in class Trainers: created new ex: %s in trainers");
             }
         });
+
+        return trainers;
     }
 
     public static void createTrainers(String name_trainers)
