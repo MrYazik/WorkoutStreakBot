@@ -48,6 +48,9 @@ public class SelectTrainersVBOX {
             // Текста последующих полей
             Label coutApporachies = new Label();
             Label coutComplite = new Label();
+
+            // ДЛЯ работы с picsid в числе
+            AtomicInteger picsIdInt = new AtomicInteger(0);
             Label picsId = new Label();
 
             ex_menu.getChildren().addAll(coutApporachies, coutComplite, picsId);
@@ -74,6 +77,7 @@ public class SelectTrainersVBOX {
                     count_comp.set(Integer.parseInt(objecte.toString()));
                 }  else if (keyes.equals("pics_id")) // если поле соответсвует
                 {
+                    picsIdInt.set(Integer.parseInt(objecte.toString()));
                     picsId.setText(textField);
                 }
             });
@@ -90,7 +94,8 @@ public class SelectTrainersVBOX {
 
                     SettingsOneEx controller = loader.getController();
                     controller.setBackcontroller(this);
-                    controller.initOneEx(name_trainers, key, count_ap.get(), count_comp.get());
+                    logger.log(Level.INFO, "pics id из конфига: " + picsId.getText());
+                    controller.initOneEx(name_trainers, key, count_ap.get(), count_comp.get(), picsIdInt.get());
 
                     backController.app.rootLayout.setCenter(rootLayout);
 
