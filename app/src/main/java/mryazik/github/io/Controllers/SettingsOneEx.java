@@ -153,17 +153,16 @@ public class SettingsOneEx {
                 SelectTrainersVBOX controller = loader.getController();
                 controller.setBackController(backController.backController);
 
-                // собираем новую инфу
-                try {
-                    count_ap.set(Integer.parseInt(this.count_ap.getText()));
-                    count_comp.set(Integer.parseInt(this.count_comp.getText()));
-                } catch (NumberFormatException e)
-                {
-                    logger.log(Level.WARNING, "Строка введённоая пользователем - это строка", e);
-                }
+                // Получаем старую инфу из json и инициализируем меню
+                Map<String, Object> oldMap = Trainers.getFromFile().getAllTrainings();
 
-                Map<String, Object> newMap = Trainers.sampleEx(count_ap.get(), count_comp.get(), oldImageId.get());
-                controller.initVBOX(backController.name_trainers_text, newMap);
+                oldMap.forEach((key, object) -> {
+                    if (key.equals(backController.name_trainers_text))
+                    {
+                        controller.initVBOX(backController.name_trainers_text, (Map<String, Object>)object);
+                    }
+                });
+
 
                 backController.backController.app.rootLayout.setCenter(rootLayout);
             } catch (IOException e)
