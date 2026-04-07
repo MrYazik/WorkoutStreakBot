@@ -35,7 +35,7 @@ public class WorkImage {
                 Path path = Paths.get(checkFile);
                 if (Files.exists(path)) // Если файл существует
                 {
-                    loadImage(image);
+                    return loadImage(image);
                 } else {
                     Files.copy(image.toPath(), path);
                     return randomImageId;
@@ -43,19 +43,20 @@ public class WorkImage {
             } else
             {
                 Files.createDirectories(Paths.get("images/"));
-                loadImage(image);
+                return loadImage(image);
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        return 0;
+        return 2;
     }
 
     public static Path getImage(int imageId)
     {
 
         String checkFile = "images/" + Integer.toString(imageId) + ".png";
+        logger.log(Level.INFO, "Путь который сформировал getImage из класса WorkImage: " + checkFile);
 
         if (Files.exists(Paths.get(checkFile))) // если файл есть, то возращаем путь
         {
@@ -63,8 +64,25 @@ public class WorkImage {
         } else
         {
             logger.log(Level.WARNING, "Нету изображения по ID: " + imageId);
+            throw new IllegalArgumentException("Ошибка, нету изображения по ID: " + imageId);
         }
+    }
 
-        return null;
+    public static void removeImage(int imageId)
+    {
+        String checkFile = "images/" + Integer.toString(imageId) + ".png";
+
+        if (Files.exists(Paths.get(checkFile))) // если файл есть
+        {
+            try {
+                Files.delete(Paths.get(checkFile));
+            } catch (IOException e) {
+                logger.log(Level.WARNING, "", e);
+            }
+        } else
+        {
+            logger.log(Level.SEVERE, "Не удалось удалить файл по id: " + imageId
+                    + " по пути: " + checkFile);
+        }
     }
 }
