@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="284.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mryazik.github.io.Controllers.InTrainers">
+   <children>
+      <Label fx:id="name_trainers" text="name_trainers" />
+      <Label fx:id="name_ex" text="name_ex">
+         <VBox.margin>
+            <Insets top="10.0" />
+         </VBox.margin></Label>
+      <ImageView fx:id="image_ex" fitHeight="150.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true">
+         <VBox.margin>
+            <Insets bottom="30.0" top="10.0" />
+         </VBox.margin></ImageView>
+      <VBox alignment="TOP_CENTER">
+         <children>
+            <Label text="Количество выполненных подходов" />
+            <ProgressBar fx:id="comp_ap" prefWidth="200.0" progress="0.27" />
+         </children>
+      </VBox>
+      <VBox alignment="TOP_CENTER" layoutX="10.0" layoutY="196.0">
+         <children>
+            <Label text="Прошло от тренеровки" />
+            <ProgressBar fx:id="proc_trainers" prefWidth="200.0" progress="0.27" />
+         </children>
+         <VBox.margin>
+            <Insets top="10.0" />
+         </VBox.margin>
+      </VBox>
+      <HBox alignment="TOP_CENTER">
+         <children>
+            <Button fx:id="back" mnemonicParsing="false" text="Отмена">
+               <HBox.margin>
+                  <Insets right="5.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="done" mnemonicParsing="false" text="Выполнил подход">
+               <HBox.margin>
+                  <Insets left="5.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+         <VBox.margin>
+            <Insets top="30.0" />
+         </VBox.margin>
+      </HBox>
+   </children>
+</VBox>
