@@ -42,7 +42,7 @@
                   <Insets right="30.0" />
                </HBox.margin>
                <image>
-                  <Image url="@../trainers/pics/1.jpg" />
+                  <Image url="@../icons/null_ex_image.png" />
                </image>
             </ImageView>
             <Button fx:id="paste_image" mnemonicParsing="false" prefWidth="88.0" text="Вставить изображение" wrapText="true" />
