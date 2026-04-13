@@ -20,7 +20,7 @@
             <VBox fx:id="list_ep" prefHeight="200.0" prefWidth="239.0" />
          </content>
       </ScrollPane>
-      <Button fx:id="start_trainers" mnemonicParsing="false" text="Запустить">
+      <Button fx:id="start" mnemonicParsing="false" text="Запустить">
          <VBox.margin>
             <Insets bottom="5.0" top="10.0" />
          </VBox.margin>
