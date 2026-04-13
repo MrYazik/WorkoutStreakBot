@@ -118,6 +118,7 @@ public class SelectTrainersVBOX {
     }
 
     @FXML Button back;
+    @FXML Button start;
 
     public void initialize()
     {
@@ -135,6 +136,23 @@ public class SelectTrainersVBOX {
                 backController.app.rootLayout.setCenter(rootLayout);
             } catch (IOException e) {
                 e.printStackTrace();
+            }
+        });
+
+        start.setOnAction(event -> {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/maket/InTrainers.fxml"));
+
+                VBox rootLayout = loader.load();
+                InTrainers controller = loader.getController();
+
+                controller.setBackcontroller(this);
+                controller.init(name_trainers_text, ex_map);
+
+                backController.app.rootLayout.setCenter(rootLayout);
+            } catch (IOException e)
+            {
+                logger.log(Level.WARNING, "Ошибка при нажатии кнопки start", e);
             }
         });
     }
