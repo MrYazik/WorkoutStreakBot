@@ -14,8 +14,18 @@
          </VBox.margin></Label>
       <ImageView fx:id="image_ex" fitHeight="150.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true">
          <VBox.margin>
-            <Insets bottom="30.0" top="10.0" />
+            <Insets bottom="1.0" top="10.0" />
          </VBox.margin></ImageView>
+      <Label text="Количество выполнений в подходе: ">
+         <VBox.margin>
+            <Insets top="5.0" />
+         </VBox.margin>
+      </Label>
+      <Label fx:id="count_co" text="couunt_comp">
+         <VBox.margin>
+            <Insets bottom="5.0" />
+         </VBox.margin>
+      </Label>
       <VBox alignment="TOP_CENTER">
          <children>
             <Label text="Количество выполненных подходов" />
