@@ -85,4 +85,16 @@ public class WorkImage {
                     + " по пути: " + checkFile);
         }
     }
+
+    public static Image getStandartImage()
+    {
+        Image standart_image = new Image(WorkImage.class.getResource("/icons/null_ex_image.png").toString());
+
+        if (standart_image == null)
+        {
+            throw new NullPointerException("В получении стандартной картинки упражнения - отсутсвует картинка");
+        }
+
+        return standart_image;
+    }
 }
