@@ -7,7 +7,7 @@
 
 <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="177.0" stylesheets="@../styles/style.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mryazik.github.io.Controllers.TrainersVBOX">
     <children>
-        <Button fx:id="stats_button" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefWidth="200.0" text="Создать тренеровку" textAlignment="CENTER">
+        <Button fx:id="create_trainers" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefWidth="200.0" text="Создать тренеровку" textAlignment="CENTER">
             <cursor>
                 <Cursor fx:constant="HAND" />
             </cursor>
