@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="207.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1"
+   fx:controller="mryazik.github.io.Controllers.CreateTrainers"
+>
+   <children>
+      <TextField fx:id="name_trainers" alignment="CENTER" promptText="Имя тренеровки" />
+      <Label prefHeight="18.0" text="Упражнения">
+         <VBox.margin>
+            <Insets top="15.0" />
+         </VBox.margin>
+      </Label>
+      <Button fx:id="create_ex" mnemonicParsing="false" prefHeight="26.0" prefWidth="199.0" text="+">
+         <VBox.margin>
+            <Insets top="5.0" />
+         </VBox.margin>
+      </Button>
+      <ScrollPane prefHeight="250.0" prefWidth="200.0">
+         <VBox.margin>
+            <Insets top="10.0" />
+         </VBox.margin>
+         <content>
+            <VBox>
+               <children>
+                  <Pane prefHeight="200.0" prefWidth="200.0" />
+               </children></VBox>
+         </content>
+      </ScrollPane>
+      <HBox alignment="CENTER" prefWidth="200.0">
+         <children>
+            <Button fx:id="back" mnemonicParsing="false" text="Отмена">
+               <HBox.margin>
+                  <Insets left="5.0" right="5.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="done" mnemonicParsing="false" text="Готово">
+               <HBox.margin>
+                  <Insets left="5.0" right="5.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+         <VBox.margin>
+            <Insets top="10.0" />
+         </VBox.margin>
+      </HBox>
+   </children>
+</VBox>

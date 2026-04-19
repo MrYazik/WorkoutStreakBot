@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="339.0" prefWidth="255.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mryazik.github.io.Controllers.SelectTrainersVBOX">
+   <children>
+      <Label fx:id="name_trainers" text="Name_trainers">
+         <VBox.margin>
+            <Insets bottom="15.0" top="10.0" />
+         </VBox.margin>
+      </Label>
+      <Label layoutX="65.0" layoutY="20.0" text="Упражнения" />
+      <ScrollPane prefHeight="200.0" prefWidth="200.0">
+         <VBox.margin>
+            <Insets top="10.0" />
+         </VBox.margin>
+         <content>
+            <VBox fx:id="list_ep" prefHeight="200.0" prefWidth="239.0" />
+         </content>
+      </ScrollPane>
+      <Button fx:id="start" mnemonicParsing="false" text="Запустить">
+         <VBox.margin>
+            <Insets bottom="5.0" top="10.0" />
+         </VBox.margin>
+      </Button>
+      <Button fx:id="back" mnemonicParsing="false" text="Назад" />
+   </children>
+</VBox>

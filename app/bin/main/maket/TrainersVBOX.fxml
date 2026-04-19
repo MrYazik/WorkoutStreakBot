@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="177.0" stylesheets="@../styles/style.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mryazik.github.io.Controllers.TrainersVBOX">
+    <children>
+        <Button fx:id="create_trainers" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefWidth="200.0" text="Создать тренеровку" textAlignment="CENTER">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+            <VBox.margin>
+                <Insets bottom="10.0" />
+            </VBox.margin>
+        </Button>
+      <ScrollPane fx:id="list_trainers" hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: transparent; -fx-background-color: transparent;">
+         <content>
+            <VBox fx:id="list_vbox" alignment="TOP_CENTER" prefWidth="175.0">
+               <opaqueInsets>
+                  <Insets bottom="10.0" />
+               </opaqueInsets>
+            </VBox>
+         </content>
+      </ScrollPane>
+      <Button fx:id="back" alignment="CENTER" layoutX="10.0" layoutY="115.0" mnemonicParsing="false" prefWidth="200.0" text="Назад" textAlignment="CENTER">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <VBox.margin>
+            <Insets bottom="5.0" top="20.0" />
+         </VBox.margin>
+      </Button>
+    </children>
+    <opaqueInsets>
+        <Insets />
+    </opaqueInsets>
+</VBox>

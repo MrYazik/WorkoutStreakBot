@@ -1,22 +1,19 @@
 package mryazik.github.io.Controllers;
 
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.geometry.Insets;
-import javafx.scene.control.Button;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.layout.VBox;
-import mryazik.github.io.App;
-import mryazik.github.io.Classes.Trainers;
-import mryazik.github.io.Classes.Excercise;
-
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.net.URL;
 import java.util.Map;
 import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
+import javafx.scene.control.Button;
+import javafx.scene.layout.VBox;
+import mryazik.github.io.App;
+import mryazik.github.io.Classes.Excercise;
+import mryazik.github.io.Classes.Trainers;
 
 // Отвечает за VBox с тренеровками: Создать тренеровку, список моих
 
@@ -75,6 +72,8 @@ public class TrainersVBOX {
     }
 
     @FXML Button back;
+    @FXML 
+    Button create_trainers;
     public void initialize()
     {
         back.setOnAction(event -> {
@@ -91,6 +90,22 @@ public class TrainersVBOX {
             } catch (IOException e)
             {
                 e.printStackTrace();
+            }
+        });
+
+
+
+        create_trainers.setOnAction(event -> {
+            try {
+                FXMLLoader loader = new FXMLLoader();
+                loader.setLocation((getClass().getResource("/maket/CreateTrainers.fxml")));
+
+                VBox rootLayout = loader.load();
+                CreateTrainers controller = loader.getController();
+
+                app.rootLayout.setCenter(rootLayout);
+            } catch (IOException e) {
+                logger.log(Level.WARNING, "Не удалось загрузить меню создания тренеровки", e);
             }
         });
     }
