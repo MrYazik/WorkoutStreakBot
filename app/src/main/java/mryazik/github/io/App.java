@@ -18,6 +18,8 @@ import mryazik.github.io.Controllers.TrainersVBOX;
 
 import java.io.IOException;
 
+import mryazik.github.io.Classes.mainWindow;
+
 public class App extends Application {
     public Stage primaryStage;
     public BorderPane rootLayout;
@@ -29,27 +31,12 @@ public class App extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception
     {
-        this.primaryStage = primaryStage;
-        showBaseWindow();
+        mainWindow mainWindow = new mainWindow();
+
+        mainWindow.stage = primaryStage;
+        mainWindow.showBaseWindow("Приложение для тренировок");
     }
 
-    public void showBaseWindow() {
-        try {
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(App.class.getResource("/maket/MainMenu.fxml"));
-            rootLayout = loader.load();
-            Scene scene = new Scene(rootLayout);
-            primaryStage.setScene(scene);
-            scene.getStylesheets().add(getClass().getResource("/styles/style.css").toExternalForm());
 
-            BaseController controller = loader.getController();
-            controller.setAppFX(this);
-
-            controller.defaultLoad();
-            primaryStage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 }
 
