@@ -50,20 +50,11 @@ public class CreateTrainers {
                     alert.showAndWait();
                 } else
                 {
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/maket/SettingsOneEx.fxml"));
-
-                    VBox rootLayout = loader.load();
-                    SettingsOneEx controller = loader.getController();
-                    controller.setBackcontroller(controller.backController);
-                    controller.initOneEx(name_trainers_fromTextFiled, "", 0, 0, 0);
-
-                    backController.app.rootLayout.setCenter(rootLayout);
+                    CreateEx create_ex = new CreateEx();
+                    create_ex.createWindow(backController);
                 }
-
-
-            
-            } catch (IOException e) {
-                logger.log(Level.WARNING, "Ошибка в загрузки настройки (создания упражнения)", e);
+            } catch (Exception ex) {
+                logger.log(Level.WARNING, "Ошибка в загрузки настройки (создания упражнения)", ex);
             }
 
         });
