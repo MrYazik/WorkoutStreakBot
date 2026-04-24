@@ -26,22 +26,22 @@ public class BaseController
         this.appFx = appFX;
     }
 
-    public void defaultLoad()
-    {
-        try {
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("/maket/MainVBOX.fxml"));
-
-            rootLayout = loader.load();
-
-            // Загружаем контроллер кнопок MainVBOXController
-            MainVBOXController controllerMainVBox = loader.getController();
-            controllerMainVBox.setApp(appFx);
-
-            appFx.rootLayout.setCenter(rootLayout);
-        } catch (IOException e)
-        {
-            e.printStackTrace();
-        }
-    }
+//    public void defaultLoad()
+//    {
+//        try {
+//            FXMLLoader loader = new FXMLLoader();
+//            loader.setLocation(getClass().getResource("/maket/MainVBOX.fxml"));
+//
+//            rootLayout = loader.load();
+//
+//            // Загружаем контроллер кнопок MainVBOXController
+//            MainVBOXController controllerMainVBox = loader.getController();
+//            controllerMainVBox.setApp(appFx);
+//
+//            appFx.rootLayout.setCenter(rootLayout);
+//        } catch (IOException e)
+//        {
+//            e.printStackTrace();
+//        }
+//    }
 }

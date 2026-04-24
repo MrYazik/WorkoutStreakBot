@@ -84,7 +84,7 @@ public class TrainersVBOX {
 
                 BaseController controller = loader.getController();
                 controller.setAppFX(app);
-                controller.defaultLoad();
+//                controller.defaultLoad();
 
                 // app.rootLayout.setCenter(rootLayout);
             } catch (IOException e)

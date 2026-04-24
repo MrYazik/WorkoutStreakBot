@@ -11,15 +11,20 @@ import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import mryazik.github.io.Classes.mainWindow;
+import mryazik.github.io.Classes.vBoxInMainWindow;
+
 // Отвечает за то чтоб управлять кнопками MainVBOX:
 
 public class MainVBOXController {
     @FXML private Button stats_button;
     @FXML private Button trainers_button;
-    App app;
+    mainWindow window;
     VBox rootLayout;
 
     private Logger logger = Logger.getLogger(MainVBOXController.class.getName());
+
+
 
     public void initialize()
     {
@@ -30,28 +35,17 @@ public class MainVBOXController {
             try {
                 System.out.println("Log: button \"Мои тренеровки\"");
 
-                FXMLLoader loader = new FXMLLoader();
-                URL fxmlLocation = getClass().getResource("/maket/TrainersVBOX.fxml");
-                loader.setLocation(fxmlLocation);
-
-                rootLayout = loader.load();
-
-//                 Загружаем ещё один контроллер, меню моих тренеровок
-                TrainersVBOX controller = loader.getController();
-                controller.setApp(app);
-
-                controller.initList(); // добавляем кнопки по тренеровкам
-
-                app.rootLayout.setCenter(rootLayout);
+                vBoxInMainWindow mainVbox = new vBoxInMainWindow(window);
+                mainVbox.loadVBox("TrainersVBOX.fxml");
             }
-            catch (IOException e) {
+            catch (Exception e) {
                 logger.log(Level.SEVERE, "Не удалось сменить rootLayout", e);
             }
         });
     }
 
-    public void setApp(App app)
+    public void setWindow(mainWindow window)
     {
-        this.app = app;
+        this.window = window;
     }
 }
