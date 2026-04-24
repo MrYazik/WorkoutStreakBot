@@ -102,6 +102,7 @@ public class TrainersVBOX {
 
                 VBox rootLayout = loader.load();
                 CreateTrainers controller = loader.getController();
+                controller.setBackController(this);
 
                 app.rootLayout.setCenter(rootLayout);
             } catch (IOException e) {
