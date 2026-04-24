@@ -1,11 +1,19 @@
 package mryazik.github.io.Controllers;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.VBox;
+
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class CreateEx {
+    Logger logger = Logger.getLogger(CreateEx.class.getName());
+
     @FXML
     TextField name_ex;
     @FXML
@@ -19,4 +27,14 @@ public class CreateEx {
     @FXML ImageView image;
 
 
+    public void createWindow (TrainersVBOX trainersVBOX) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/maket/CreateEx.fxml"));
+
+            VBox rootLayout = loader.load();
+            trainersVBOX.app.rootLayout.setCenter(rootLayout);
+        } catch (IOException e) {
+            logger.log(Level.WARNING, "Ну удалось загрузить меню CreateEx.java", e);
+        }
+    };
 }
