@@ -11,6 +11,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import mryazik.github.io.Classes.WorkImage;
+import mryazik.github.io.Classes.mainWindow;
+import mryazik.github.io.Classes.vBoxInMainWindow;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -40,11 +42,6 @@ public class InTrainers {
     Button back;
     @FXML
     Label count_co; // количество выполнений (текст)
-
-    public void setBackcontroller(SelectTrainersVBOX backController)
-    {
-        this.backController = backController;
-    }
 
     // Переменные необходимые объекту
     // Мы модем позволить static, ведь архитектура ПО не предполагает однвременного запуска нескольких программ
@@ -128,7 +125,7 @@ public class InTrainers {
 
                 if (current_ex > list_ex.size())
                 {
-                    backMenu();
+                    vBoxInMainWindow.back();
                 } else
                 {
                     changeEx(current_ex);
@@ -139,24 +136,6 @@ public class InTrainers {
 
     public void initialize()
     {
-        back.setOnAction(event -> backMenu());
-    }
-
-    public void backMenu()
-    {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/maket/SelectedTrainersVBOX.fxml"));
-
-            VBox rootLayout = loader.load();
-
-            SelectTrainersVBOX controller = loader.getController();
-            controller.setBackController(backController.backController);
-            controller.initVBOX(backController.name_trainers_text, backController.ex_map);
-
-            backController.backController.app.rootLayout.setCenter(rootLayout);
-        } catch (IOException e)
-        {
-            logger.log(Level.WARNING, "Не удалось загрузить SelectedTrainersVBOX.fxml", e);
-        }
+        back.setOnAction(event -> vBoxInMainWindow.back());
     }
 }

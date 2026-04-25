@@ -11,6 +11,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
+import mryazik.github.io.Classes.vBoxInMainWindow;
 
 public class CreateTrainers {
     Logger logger = Logger.getLogger(getClass().getName());
@@ -29,13 +30,6 @@ public class CreateTrainers {
 
     public TrainersVBOX backController;
 
-    public void setBackController (TrainersVBOX backController) {this.backController = backController;}
-
-    public void init()
-    {
-
-    }
-
     public void initialize()
     {
         create_ex.setOnAction(event -> {
@@ -44,10 +38,7 @@ public class CreateTrainers {
 
                 if (name_trainers_fromTextFiled.equals("")) // Если пустая строка
                 {
-                    Alert alert = new Alert(AlertType.ERROR);
-                    alert.setTitle("WorkoutStreak");
-                    alert.setContentText("Нету имени тренеровки, чтоб добавить упражнение - нужно имя тренеровки");
-                    alert.showAndWait();
+                    vBoxInMainWindow.showAlert("Нету имени тренировки, чтоб добавить упражнение - нужно имя тренировки");
                 } else
                 {
                     CreateEx create_ex = new CreateEx();
@@ -57,6 +48,10 @@ public class CreateTrainers {
                 logger.log(Level.WARNING, "Ошибка в загрузки настройки (создания упражнения)", ex);
             }
 
+        });
+
+        back.setOnAction(event -> {
+            vBoxInMainWindow.back();
         });
     }
 }

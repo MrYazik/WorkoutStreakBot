@@ -14,11 +14,12 @@ import javafx.scene.layout.VBox;
 import mryazik.github.io.App;
 import mryazik.github.io.Classes.Excercise;
 import mryazik.github.io.Classes.Trainers;
+import mryazik.github.io.Classes.mainWindow;
+import mryazik.github.io.Classes.vBoxInMainWindow;
 
 // Отвечает за VBox с тренеровками: Создать тренеровку, список моих
 
 public class TrainersVBOX {
-    App app;
     private static Logger logger = Logger.getLogger(Trainers.class.getName());
 
     @FXML
@@ -52,7 +53,7 @@ public class TrainersVBOX {
                     controller.setBackController(this);
                     controller.initVBOX(key, (Map<String, Object>) object);
 
-                    app.rootLayout.setCenter(rootLayout);
+                    mainWindow.rootLayout.setCenter(rootLayout);
                 } catch (IOException e)
                 {
                     e.printStackTrace();
@@ -64,13 +65,6 @@ public class TrainersVBOX {
         });
     }
 
-
-
-    public void setApp(App app)
-    {
-        this.app = app;
-    }
-
     @FXML Button back;
     @FXML 
     Button create_trainers;
@@ -78,34 +72,18 @@ public class TrainersVBOX {
     {
         back.setOnAction(event -> {
             try {
-                FXMLLoader loader = new FXMLLoader();
-                loader.setLocation(getClass().getResource("/maket/MainMenu.fxml"));
-                loader.load();
-
-                BaseController controller = loader.getController();
-                controller.setAppFX(app);
-//                controller.defaultLoad();
-
-                // app.rootLayout.setCenter(rootLayout);
-            } catch (IOException e)
+                vBoxInMainWindow.back();
+            } catch (Exception e)
             {
                 e.printStackTrace();
             }
         });
 
-
-
         create_trainers.setOnAction(event -> {
             try {
-                FXMLLoader loader = new FXMLLoader();
-                loader.setLocation((getClass().getResource("/maket/CreateTrainers.fxml")));
-
-                VBox rootLayout = loader.load();
-                CreateTrainers controller = loader.getController();
-                controller.setBackController(this);
-
-                app.rootLayout.setCenter(rootLayout);
-            } catch (IOException e) {
+                vBoxInMainWindow vBox = new vBoxInMainWindow();
+                FXMLLoader vBoxLoader = vBox.loadVBox("CreateTrainers.fxml");
+            } catch (Exception e) {
                 logger.log(Level.WARNING, "Не удалось загрузить меню создания тренеровки", e);
             }
         });

@@ -12,12 +12,12 @@ import mryazik.github.io.Controllers.MainVBOXController;
 import java.io.IOException;
 
 public class mainWindow {
-    public Stage stage;
-    public BorderPane rootLayout;
+    static public Stage stage;
+    static public BorderPane rootLayout;
 
-    public void showBaseWindow(String titleWindow) {
+    static public void showBaseWindow(String titleWindow) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/maket/mainMenu.fxml"));
+            FXMLLoader loader = new FXMLLoader(mainWindow.class.getResource("/maket/mainMenu.fxml"));
             rootLayout = loader.load();
 
             Scene scene = new Scene(rootLayout);
@@ -25,14 +25,11 @@ public class mainWindow {
             stage.setTitle(titleWindow);
 
             // Устанавливаем стиль
-            scene.getStylesheets().add(getClass().getResource("/styles/style.css").toExternalForm());
+            scene.getStylesheets().add(mainWindow.class.getResource("/styles/style.css").toExternalForm());
 
             // Загружаем VBox
-            vBoxInMainWindow newVBox = new vBoxInMainWindow(this);
+            vBoxInMainWindow newVBox = new vBoxInMainWindow();
             newVBox.loadVBox("MainVBOX.fxml");
-
-            MainVBOXController controller = newVBox.loader.getController();
-            controller.setWindow(this);
 
             stage.show();
         } catch (IOException e) {

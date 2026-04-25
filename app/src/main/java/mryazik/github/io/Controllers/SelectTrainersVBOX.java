@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
+import mryazik.github.io.Classes.mainWindow;
 
 import java.io.IOException;
 import java.util.Map;
@@ -97,7 +98,7 @@ public class SelectTrainersVBOX {
                     logger.log(Level.INFO, "pics id из конфига: " + picsId.getText());
                     controller.initOneEx(name_trainers, key, count_ap.get(), count_comp.get(), picsIdInt.get());
 
-                    backController.app.rootLayout.setCenter(rootLayout);
+                    mainWindow.rootLayout.setCenter(rootLayout);
 
                 } catch (IOException e)
                 {
@@ -130,10 +131,9 @@ public class SelectTrainersVBOX {
                 VBox rootLayout = loader.load();
 
                 TrainersVBOX controller = loader.getController();
-                controller.setApp(backController.app);
                 controller.initList();
 
-                backController.app.rootLayout.setCenter(rootLayout);
+                mainWindow.rootLayout.setCenter(rootLayout);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -146,10 +146,9 @@ public class SelectTrainersVBOX {
                 VBox rootLayout = loader.load();
                 InTrainers controller = loader.getController();
 
-                controller.setBackcontroller(this);
                 controller.init(name_trainers_text, ex_map);
 
-                backController.app.rootLayout.setCenter(rootLayout);
+                mainWindow.rootLayout.setCenter(rootLayout);
             } catch (IOException e)
             {
                 logger.log(Level.WARNING, "Ошибка при нажатии кнопки start", e);

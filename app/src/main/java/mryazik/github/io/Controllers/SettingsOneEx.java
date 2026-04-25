@@ -11,6 +11,7 @@ import javafx.stage.FileChooser;
 import mryazik.github.io.App;
 import mryazik.github.io.Classes.Trainers;
 import mryazik.github.io.Classes.WorkImage;
+import mryazik.github.io.Classes.mainWindow;
 
 import java.io.File;
 import java.io.IOException;
@@ -96,7 +97,7 @@ public class SettingsOneEx {
             FileChooser fileChooser = new FileChooser();
             fileChooser.setTitle("Установите изображение для упражнения");
 
-            File selectedFile = fileChooser.showOpenDialog(backController.backController.app.primaryStage);
+            File selectedFile = fileChooser.showOpenDialog(mainWindow.stage);
             oldImageId.set(WorkImage.loadImage(selectedFile));
 
 
@@ -136,7 +137,7 @@ public class SettingsOneEx {
                     }
                 });
 
-                backController.backController.app.rootLayout.setCenter(rootLayout);
+                mainWindow.rootLayout.setCenter(rootLayout);
             }catch (IOException e) {
                 logger.log(Level.SEVERE, "Не удалось загрузить из SettingsOneEx обратно в SelectedTrainersVBOX.fxml");
             }
@@ -164,7 +165,7 @@ public class SettingsOneEx {
                 });
 
 
-                backController.backController.app.rootLayout.setCenter(rootLayout);
+                mainWindow.rootLayout.setCenter(rootLayout);
             } catch (IOException e)
             {
                 logger.log(Level.WARNING, "Не удалось загрузить меню упражнения SelectTrainersVBOX.fxml", e);

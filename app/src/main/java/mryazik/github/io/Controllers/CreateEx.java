@@ -6,6 +6,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
+import mryazik.github.io.Classes.mainWindow;
 
 import java.io.IOException;
 import java.util.logging.Level;
@@ -32,7 +33,7 @@ public class CreateEx {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/maket/CreateEx.fxml"));
 
             VBox rootLayout = loader.load();
-            trainersVBOX.app.rootLayout.setCenter(rootLayout);
+            mainWindow.rootLayout.setCenter(rootLayout);
         } catch (IOException e) {
             logger.log(Level.WARNING, "Ну удалось загрузить меню CreateEx.java", e);
         }

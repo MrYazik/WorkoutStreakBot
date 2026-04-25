@@ -35,17 +35,15 @@ public class MainVBOXController {
             try {
                 System.out.println("Log: button \"Мои тренеровки\"");
 
-                vBoxInMainWindow mainVbox = new vBoxInMainWindow(window);
-                mainVbox.loadVBox("TrainersVBOX.fxml");
+                vBoxInMainWindow mainVbox = new vBoxInMainWindow();
+                FXMLLoader loader = mainVbox.loadVBox("TrainersVBOX.fxml");
+
+                TrainersVBOX controller = loader.getController();
+                controller.initList();
             }
             catch (Exception e) {
                 logger.log(Level.SEVERE, "Не удалось сменить rootLayout", e);
             }
         });
-    }
-
-    public void setWindow(mainWindow window)
-    {
-        this.window = window;
     }
 }
